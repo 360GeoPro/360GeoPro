@@ -1,16 +1,21 @@
-## Hi there 👋
+# Meine GitHub Pages Website
 
-<!--
-**360GeoPro/360GeoPro** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Diese Vorlage enthält eine einfache statische Website.
 
-Here are some ideas to get you started:
+## Dateien
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- `index.html` – Inhalt der Website
+- `style.css` – Gestaltung der Website
+
+## Veröffentlichung mit GitHub Pages
+
+1. Neues GitHub-Repository erstellen.
+2. Diese Dateien hochladen.
+3. Unter **Settings → Pages** GitHub Pages aktivieren.
+4. Als Quelle `main` und `/root` auswählen.
+5. Nach kurzer Zeit ist die Website online.
+
+## Anpassen
+
+In `index.html` kannst du Texte, E-Mail-Adresse und Projekttitel ändern.
+In `style.css` kannst du Farben, Abstände und Layout anpassen.
