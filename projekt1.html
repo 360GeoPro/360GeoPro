@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projekt 1 | 360° Rundgang</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Pannellum 360° Viewer -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
+  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a class="logo" href="index.html">← Zurück</a>
+      <div class="nav-links">
+        <a href="index.html#projekte">360° Projekte</a>
+        <a href="index.html#kontakt">Kontakt</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="section-header">
+        <p class="label">360° Tour</p>
+        <h1 class="page-title">Projekt 1: Virtueller Rundgang</h1>
+        <p>
+          Klicke im Bild auf die runden Markierungen, um zwischen den Räumen zu wechseln.
+        </p>
+      </div>
+
+      <div class="viewer-layout">
+        <aside class="viewer-panel">
+          <h2>Räume</h2>
+          <div class="gallery-buttons">
+            <button type="button" onclick="viewer.loadScene('eingang')">Eingang</button>
+            <button type="button" onclick="viewer.loadScene('raum1')">Raum 1</button>
+            <button type="button" onclick="viewer.loadScene('raum2')">Raum 2</button>
+          </div>
+
+          <hr />
+
+          <h3>Bilder hochladen</h3>
+          <p class="small-text">
+            Lade deine 360° Bilder in GitHub in den Ordner <code>360-bilder</code> hoch.
+          </p>
+
+          <ul class="small-text">
+            <li><code>eingang.jpg</code></li>
+            <li><code>raum1.jpg</code></li>
+            <li><code>raum2.jpg</code></li>
+          </ul>
+
+          <p class="hint">
+            Danach funktionieren die Raumwechsel automatisch, sofern die Dateinamen gleich bleiben.
+          </p>
+        </aside>
+
+        <section class="viewer-card">
+          <div id="panorama"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Dein Name · 360° Rundgang</p>
+  </footer>
+
+  <script>
+    const viewer = pannellum.viewer("panorama", {
+      default: {
+        firstScene: "eingang",
+        sceneFadeDuration: 1000,
+        autoLoad: true
+      },
+
+      scenes: {
+        eingang: {
+          title: "Eingang",
+          type: "equirectangular",
+          panorama: "360-bilder/eingang.jpg",
+          pitch: 0,
+          yaw: 0,
+          hotSpots: [
+            {
+              pitch: -2,
+              yaw: 35,
+              type: "scene",
+              text: "Zu Raum 1",
+              sceneId: "raum1",
+              targetYaw: 0,
+              targetPitch: 0
+            }
+          ]
+        },
+
+        raum1: {
+          title: "Raum 1",
+          type: "equirectangular",
+          panorama: "360-bilder/raum1.jpg",
+          pitch: 0,
+          yaw: 0,
+          hotSpots: [
+            {
+              pitch: -3,
+              yaw: 180,
+              type: "scene",
+              text: "Zurück zum Eingang",
+              sceneId: "eingang",
+              targetYaw: 180,
+              targetPitch: 0
+            },
+            {
+              pitch: -2,
+              yaw: 45,
+              type: "scene",
+              text: "Zu Raum 2",
+              sceneId: "raum2",
+              targetYaw: 0,
+              targetPitch: 0
+            }
+          ]
+        },
+
+        raum2: {
+          title: "Raum 2",
+          type: "equirectangular",
+          panorama: "360-bilder/raum2.jpg",
+          pitch: 0,
+          yaw: 0,
+          hotSpots: [
+            {
+              pitch: -3,
+              yaw: 220,
+              type: "scene",
+              text: "Zurück zu Raum 1",
+              sceneId: "raum1",
+              targetYaw: 180,
+              targetPitch: 0
+            }
+          ]
+        }
+      }
+    });
+  </script>
+</body>
+</html>

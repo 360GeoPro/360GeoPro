@@ -1,41 +1,51 @@
-# HTML-Website: Über mich, 360° Projekte, Kontakt
+# 360° Rundgang mit Raumwechsel
 
-Diese Website besteht aus:
+Diese Version nutzt Pannellum mit mehreren Szenen.
+
+## Dateien
 
 - `index.html`
+- `projekt1.html`
 - `style.css`
+- `360-bilder/`
 
-## Anpassen
+## Bilder hochladen
 
-In `index.html` kannst du folgende Texte ändern:
+Lade in GitHub in den Ordner `360-bilder` diese drei Bilder hoch:
 
-- `Dein Name`
-- Beschreibung im Abschnitt „Über mich“
-- Projekttitel und Projektbeschreibungen
-- Links bei „Projekt öffnen“
-- Kontaktformular
+- `eingang.jpg`
+- `raum1.jpg`
+- `raum2.jpg`
 
-## Kontaktformular
+Danach öffnest du `projekt1.html`.
+Dort kannst du über Hotspots zwischen den Räumen wechseln.
 
-Das Formular ist optisch fertig, verschickt aber noch keine E-Mails.
+## Weitere Räume hinzufügen
 
-Damit es funktioniert, brauchst du z. B.:
+In `projekt1.html` kannst du im JavaScript-Teil unter `scenes` weitere Räume ergänzen.
 
-- Formspree
-- Netlify Forms
-- eigenes PHP-Script
-- anderes Formular-Backend
+Beispiel:
 
-Dann wird im Formular diese Zeile angepasst:
-
-```html
-<form class="contact-form" action="" method="post">
+```javascript
+raum3: {
+  title: "Raum 3",
+  type: "equirectangular",
+  panorama: "360-bilder/raum3.jpg",
+  hotSpots: [
+    {
+      pitch: -2,
+      yaw: 180,
+      type: "scene",
+      text: "Zurück zu Raum 2",
+      sceneId: "raum2"
+    }
+  ]
+}
 ```
 
-## GitHub Pages
+## Hotspot-Positionen
 
-1. Repository erstellen.
-2. Dateien hochladen.
-3. Settings → Pages öffnen.
-4. Source: Deploy from branch.
-5. Branch: main, Ordner: /root.
+- `yaw` = links/rechts im Bild
+- `pitch` = hoch/runter im Bild
+
+Wenn der Punkt nicht an der richtigen Stelle ist, ändere die Zahlen.

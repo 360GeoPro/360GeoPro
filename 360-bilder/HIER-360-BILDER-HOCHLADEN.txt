@@ -1,0 +1,10 @@
+Dieser Ordner ist für deine 360° Bilder.
+
+Benötigte Dateinamen für diese Vorlage:
+
+- eingang.jpg
+- raum1.jpg
+- raum2.jpg
+
+Wichtig:
+Die Namen müssen genau gleich geschrieben sein wie in projekt1.html.
